@@ -1,8 +1,10 @@
 import 'package:do_it/utils/constants.dart';
 import 'package:do_it/view/widgets/NameTextField.dart';
+import 'package:do_it/view/widgets/TaskDateWidget.dart';
 import 'package:do_it/view/widgets/TaskType.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -77,7 +79,8 @@ class DrawerWidget extends StatelessWidget {
                   borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
                   borderRadius: BorderRadius.circular(5)),
             ),
-          )
+          ),
+              TaskDateWidget()
 
 
 
