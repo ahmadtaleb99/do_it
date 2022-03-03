@@ -1,7 +1,9 @@
 import 'package:do_it/utils/constants.dart';
-import 'package:do_it/view/widgets/NameTextField.dart';
-import 'package:do_it/view/widgets/TaskDateWidget.dart';
-import 'package:do_it/view/widgets/TaskType.dart';
+import 'package:do_it/view/widgets/drawer/AddButton.dart';
+import 'package:do_it/view/widgets/drawer/NameTextField.dart';
+import 'package:do_it/view/widgets/drawer/TaskDateWidget.dart';
+import 'package:do_it/view/widgets/drawer/TaskType.dart';
+import 'package:do_it/view/widgets/drawer/TimeWidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -49,7 +51,7 @@ class DrawerWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16.h,),
-              GradientTextField(),
+              GradientTextField(label: Text('Name'),),
               SizedBox(height: 30.h,),
               Text(
                 'Description',
@@ -80,8 +82,12 @@ class DrawerWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5)),
             ),
           ),
-              TaskDateWidget()
 
+              TaskDateWidget(),
+              SizedBox(height:30.h),
+              TimeWidget(),
+              SizedBox(height:50.h),
+              AddButton()
 
 
 

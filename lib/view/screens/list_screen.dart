@@ -1,4 +1,8 @@
+import 'package:do_it/utils/constants.dart';
 import 'package:do_it/view/screens/drawer.dart';
+import 'package:do_it/view/widgets/List_screen/BuildTaskItems.dart';
+import 'package:do_it/view/widgets/List_screen/RoundButton.dart';
+import 'package:do_it/view/widgets/drawer/AddButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +13,15 @@ class ListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        RoundButton(icon: Icon(Icons.check_rounded,color: Colors.white,),gradient: kPurpleGradient,),
+        RoundButton(icon: SvgPicture.asset('assets/images/as.svg',fit: BoxFit.scaleDown,),width:  56.w,height:56.h  ,color: Colors.white,),
+        RoundButton(icon: Icon(Icons.add,color: Colors.white,),gradient: kBlueGradient,),
+
+      ],
+      ),
 
       endDrawer: DrawerWidget(),
       appBar: AppBar(
@@ -29,18 +42,24 @@ class ListScreen extends StatelessWidget {
 
       ),
 
-      body: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage('assets/images/background.png')
-        //
-        //   ),
-        //
-        // ),
-        child: Image.asset('assets/images/background.png',fit: BoxFit.fill,),
-      ),
+      body: Stack(
+
+        children: [
+          SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            // decoration: BoxDecoration(
+            //   image: DecorationImage(
+            //     image: AssetImage('assets/images/background.png')
+            //
+            //   ),
+            //
+            // ),
+            child: Image.asset('assets/images/background.png',fit: BoxFit.fill,),
+          ),
+          BuildTaskItems()
+        ],
+      )
     );
   }
 }

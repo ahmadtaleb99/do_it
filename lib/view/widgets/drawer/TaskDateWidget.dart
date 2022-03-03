@@ -3,6 +3,7 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 import 'NameTextField.dart';
 
+
 class TaskDateWidget extends StatefulWidget {
   const TaskDateWidget({Key? key}) : super(key: key);
 
@@ -47,7 +48,7 @@ class _TaskDateWidgetState extends State<TaskDateWidget> {
 
                   });
                     }, currentTime: DateTime.now(), locale: LocaleType.en);
-    },child: GradientTextField(suffix: Icon(Icons.arrow_drop_down,color: Colors.black,),));
+    },child: GradientTextField(suffix: Icon(Icons.arrow_drop_down,color: Colors.black,),enabled: false,label: Text('Date'),));
 
   }
 }

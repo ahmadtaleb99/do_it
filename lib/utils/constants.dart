@@ -19,6 +19,10 @@ fontSize: 13
 );
 
 
+TextStyle kTaskStyle =  GoogleFonts.lato(
+    fontSize: 14
+);
+
  var iconsList = [
    SvgPicture.asset('assets/images/gymIcon.svg'),
    SvgPicture.asset('assets/images/locationIcon.svg'),
@@ -29,7 +33,12 @@ fontSize: 13
  ];
 
 
- const  kLinearGradient =LinearGradient(colors: [
+ const  kPurpleGradient =LinearGradient(colors: [
    Color(0xffFE1E9A),
    Color(0xff254DDE)
  ]);
+
+const  kBlueGradient =LinearGradient(colors: [
+  Color(0xff254DDE),
+  Color(0xff00FFFF),
+]);
