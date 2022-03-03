@@ -49,7 +49,7 @@ class DrawerWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16.h,),
-              NameTextField(),
+              GradientTextField(),
               SizedBox(height: 30.h,),
               Text(
                 'Description',

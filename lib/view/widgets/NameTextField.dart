@@ -1,18 +1,38 @@
 import 'package:do_it/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class NameTextField extends StatelessWidget {
-  const NameTextField({Key? key}) : super(key: key);
-
+class GradientTextField extends StatelessWidget {
+  const GradientTextField({Key? key, this.suffix}) : super(key: key);
+    final Widget ? suffix;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         TextField(
-
+          enabled: false,
+          focusNode: FocusNode(),
+          enableInteractiveSelection: false,
+          onTap: (){
+            DatePicker.showDatePicker(context,
+                showTitleActions: true,
+                minTime: DateTime.now(),
+                maxTime: DateTime(2023, 6, 7),
+                onConfirm: (date) {
+                  // setState(() {
+                  //   _date = date;
+                  //
+                  // });
+                }, currentTime: DateTime.now(), locale: LocaleType.en);
+          },
           decoration: InputDecoration(
+            suffixIcon:     Padding(
+              padding: const EdgeInsets.only(top: 17),
+              child: suffix,
+            ),
             enabledBorder: UnderlineInputBorder(
+
               borderSide: BorderSide(color:Colors.black ),
             ),
             focusedBorder: UnderlineInputBorder(
