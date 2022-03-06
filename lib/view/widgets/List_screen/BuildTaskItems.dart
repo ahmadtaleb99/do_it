@@ -22,6 +22,7 @@ class BuildTaskItems extends StatelessWidget {
 
 
    return InViewNotifierList(
+     initialInViewIds: ['0','1','2','3','4'],
       isInViewPortCondition:
           (double deltaTop, double deltaBottom, double viewPortDimension) {
             return deltaTop < (0.7 * viewPortDimension) ;
@@ -31,13 +32,6 @@ class BuildTaskItems extends StatelessWidget {
         return InViewNotifierWidget(
           id: '$index',
           builder: (BuildContext context, bool isInView, Widget  ? child) {
-            // return Container(
-            //   height: 250.0,
-            //   color: isInView ? Colors.green : Colors.red,
-            //   child: Text(
-            //     isInView ? 'Is in view' : 'Not in view',
-            //   ),
-            // );
 
               return TaskCard(index: index,isInView: isInView);
 

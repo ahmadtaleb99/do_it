@@ -15,7 +15,7 @@ class TaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: isInView ? 1.0 : 0.5 ,
+      opacity: isInView ? 1.0 : 0.4 ,
       child: Container(
         margin: EdgeInsets.only(left: 20.w,right: 20.w,top: 15,bottom: 15),
         width: 320.w,
