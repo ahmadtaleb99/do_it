@@ -16,24 +16,19 @@ class RoundButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-
-      color: Colors.blue,
+      color: Colors.transparent,
       child: InkWell(
-
-        splashColor: Colors.grey.withOpacity(0.4),
-        onTap: (){
-          print('hel');
-        },
-        child: Container(
+        borderRadius:BorderRadius.circular(50),
+        onTap: (){},
+        child: Ink(
           width: width ?? 46.w,
-          height: height ?? 46.h,
-          child: icon,
+          height:height ?? 46.h,
           decoration: BoxDecoration(
-
-            // color: color ?? Colors.white,
-            borderRadius: BorderRadius.circular(50),
-            // gradient: gradient ?? null
+              shape: BoxShape.circle,
+              color: color ?? Colors.white,
+              gradient: gradient ?? null
           ),
+          child:icon,
         ),
       ),
     );

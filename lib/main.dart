@@ -3,14 +3,26 @@ import 'package:do_it/utils/AppRouter.dart';
 import 'package:do_it/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final storage = await HydratedStorage.build(
+      storageDirectory: await getApplicationDocumentsDirectory(),
+  );
+
+
+  HydratedBlocOverrides.runZoned(
+  () => runApp(MyApp()),
+  storage: storage,
+  );}
 
 
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
      return ScreenUtilInit(

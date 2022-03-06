@@ -21,17 +21,6 @@ class ListScreen extends StatelessWidget {
           RoundButton(icon: Icon(Icons.check_rounded,color: Colors.white,),gradient: kPurpleGradient,),
           RoundButton(icon: SvgPicture.asset('assets/images/as.svg',fit: BoxFit.scaleDown,),width:  56.w,height:56.h  ,color: Colors.white,),
           RoundButton(icon: Icon(Icons.add,color: Colors.white,),gradient: kBlueGradient,),
- FloatingActionButton(
-    child: Container(
-    width: 60,
-    height: 60,
-    child: Icon(Icons.add),
-    decoration: BoxDecoration(
-    shape: BoxShape.circle,
-    gradient: LinearGradient(colors: [Colors.red, Colors.blue])),
-    ),
-    onPressed: () {},
-    )
 
     ],
         ),
