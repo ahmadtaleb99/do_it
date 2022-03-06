@@ -6,15 +6,19 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GradientTextField extends StatelessWidget {
-  const GradientTextField({Key? key, this.suffix, this.enabled, this.label}) : super(key: key);
+  const GradientTextField({Key? key, this.suffix, this.enabled, this.label,  this.controller, this.onChanged}) : super(key: key);
     final Widget ? suffix;
     final Widget ? label;
     final bool? enabled;
+    final TextEditingController?  controller;
+    final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         TextField(
+          onChanged: onChanged,
+                    controller: controller,
           enabled: enabled,
 
           // onTap: (){
@@ -30,7 +34,6 @@ class GradientTextField extends StatelessWidget {
           //       }, currentTime: DateTime.now(), locale: LocaleType.en);
           // },
           decoration: InputDecoration(
-
             suffixIcon:     Padding(
               padding: const EdgeInsets.only(top: 17),
               child: suffix,

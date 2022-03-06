@@ -1,18 +1,25 @@
+import 'package:do_it/logic/todo_bloc.dart';
+import 'package:do_it/model/Todo.dart';
 import 'package:do_it/utils/constants.dart';
 import 'package:do_it/view/widgets/drawer/AddButton.dart';
 import 'package:do_it/view/widgets/drawer/NameTextField.dart';
 import 'package:do_it/view/widgets/drawer/TaskDateWidget.dart';
-import 'package:do_it/view/widgets/drawer/TaskType.dart';
+import 'package:do_it/view/widgets/drawer/TaskTypePicker.dart';
 import 'package:do_it/view/widgets/drawer/TimeWidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/src/provider.dart';
 
 class DrawerWidget extends StatelessWidget {
 
-  const DrawerWidget({Key? key}) : super(key: key);
+    DrawerWidget({Key? key}) : super(key: key);
+   late final  String  _todoName;
+    late final String  _todoDescription;
+    late final DateTime _totoDate;
+    late final TodoType  _todoCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +47,15 @@ class DrawerWidget extends StatelessWidget {
                       style: kDrawerHeader,
                     ),
                     Expanded(
-                      child: Row(
-
-                        children: [
-                          TaskType(),
-                        ],
-                      ),
+                      child: TaskTypePicker(onChanged: (selected){
+                      _todoCategory = selected;
+                      }),
                     )
                   ],
                 ),
               ),
               SizedBox(height: 16.h,),
-              GradientTextField(label: Text('Name'),),
+              GradientTextField(label: Text('Name'),onChanged: (name){_todoName = name ;},),
               SizedBox(height: 30.h,),
               Text(
                 'Description',
@@ -59,35 +63,30 @@ class DrawerWidget extends StatelessWidget {
               ),
               SizedBox(height: 9  .h,),
               TextField(
+                onChanged: (description){
+                  _todoDescription = description;
+                },
                 maxLines: 4,
             textDirection: TextDirection.ltr,
-            decoration: InputDecoration(
-
-              contentPadding: EdgeInsets.all(12),
-              fillColor: Colors.white,
-              filled: true,
-              errorStyle: const TextStyle(),
-              hintStyle:  TextStyle(
-                  color: Colors.grey.withOpacity(0.250)
-              ),
-              enabledBorder: OutlineInputBorder(
-
-                  borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
-                  borderRadius: BorderRadius.circular(5)),
-              focusedBorder: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
-                  borderRadius: BorderRadius.circular(5)),
-              errorBorder: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
-                  borderRadius: BorderRadius.circular(5)),
-            ),
+            decoration: kDescriptionDecoration,
           ),
 
-              TaskDateWidget(),
+              DateWidget(
+                onChanged: (date){
+                    _totoDate = date;
+                },
+              ),
               SizedBox(height:30.h),
-              TimeWidget(),
+              TimeWidget(onChanged: (date){
+
+                print(date);
+              },),
               SizedBox(height:50.h),
-              AddButton()
+              AddButton(onPressed: (){
+                    var todo = Todo(description: _todoDescription, name: _todoName, date: _totoDate, todoType: _todoCategory, isCompleted: false);
+                    context.read<TodoBloc>().add(TodoAdded(todo: todo));
+                    print(todo.toString());
+              },)
 
 
 

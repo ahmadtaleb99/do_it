@@ -23,14 +23,7 @@ TextStyle kTaskStyle =  GoogleFonts.lato(
     fontSize: 14
 );
 
- var iconsList = [
-   SvgPicture.asset('assets/images/gymIcon.svg'),
-   SvgPicture.asset('assets/images/locationIcon.svg'),
-   SvgPicture.asset('assets/images/sportIcon.svg'),
-   SvgPicture.asset('assets/images/shoppingIcon.svg'),
-   SvgPicture.asset('assets/images/partyIcon.svg'),
-   SvgPicture.asset('assets/images/otherIcon.svg'),
- ];
+
 
 
  const  kPurpleGradient =LinearGradient(colors: [
@@ -42,3 +35,45 @@ const  kBlueGradient =LinearGradient(colors: [
   Color(0xff254DDE),
   Color(0xff00FFFF),
 ]);
+
+ InputDecoration kDescriptionDecoration = InputDecoration(
+
+contentPadding: EdgeInsets.all(12),
+fillColor: Colors.white,
+filled: true,
+errorStyle: const TextStyle(),
+hintStyle:  TextStyle(
+color: Colors.grey.withOpacity(0.250)
+),
+enabledBorder: OutlineInputBorder(
+
+borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
+borderRadius: BorderRadius.circular(5)),
+focusedBorder: OutlineInputBorder(
+borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
+borderRadius: BorderRadius.circular(5)),
+errorBorder: OutlineInputBorder(
+borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
+borderRadius: BorderRadius.circular(5)),
+);
+
+
+
+
+
+
+
+
+
+
+
+
+var iconsList = [
+
+  SvgPicture.asset('assets/images/gymIcon.svg', fit: BoxFit.fill,),
+  SvgPicture.asset('assets/images/locationIcon.svg'),
+  SvgPicture.asset('assets/images/sportIcon.svg',fit: BoxFit.scaleDown),
+  SvgPicture.asset('assets/images/shoppingIcon.svg',fit: BoxFit.cover,),
+  SvgPicture.asset('assets/images/partyIcon.svg'),
+  SvgPicture.asset('assets/images/otherIcon.svg'),
+];

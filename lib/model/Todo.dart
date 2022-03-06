@@ -7,10 +7,15 @@ class Todo {
   final bool isCompleted;
 
 
+  @override
+  String toString() {
+    return 'Todo{description: $description, name: $name, date: $date, todoType: $todoType, isCompleted: $isCompleted}';
+  }
+
   Todo( {required this.description, required this.name, required this.date, required this.todoType,required this.isCompleted});
 
   factory Todo.fromJson(dynamic json){
-    return Todo(description: json['description'], date:  json['date'], todoType:  TodoType.fromJson(json['todoType']), name: json['name'], isCompleted: json['isCompleted']);
+    return Todo(description: json['description'], date:  json['date'], todoType: todoCategoryValues.map![json['sad']]!, name: json['name'], isCompleted: json['isCompleted']);
   }
 
   Map<String,dynamic> toJson()
@@ -18,23 +23,63 @@ class Todo {
   return {
   'description' : this.description,
   'date' : this.date,
-  'todoType' : this.todoType.toJson(),
+  'todoType' : todoCategoryValues.reverse![todoType],
   'name' : this.name,
   'isCompleted' : this.isCompleted,
   };
 }
 }
 
-class TodoType {
- final String typeName;
+// class TodoType {
+//  final String typeName;
+//
+//
+//
+//   TodoType(this.typeName);
+//
+//  factory TodoType.fromJson(dynamic json) {
+//     return TodoType(json['typeName']);
+//   }
+//
+//  Map<String,dynamic> toJson() => {'typeName' : this.typeName};
+// }
 
 
+class EnumValues<T> {
+  Map<String, T>? map;
+  Map<T, String>? reverseMap;
 
-  TodoType(this.typeName);
+  EnumValues(this.map);
 
- factory TodoType.fromJson(dynamic json) {
-    return TodoType(json['typeName']);
+  Map<T, String>? get reverse {
+    if (reverseMap == null) {
+      reverseMap = map!.map((k, v) => new MapEntry(v, k));
+    }
+    return reverseMap;
   }
+}
 
- Map<String,dynamic> toJson() => {'typeName' : this.typeName};
+
+
+final todoCategoryValues = EnumValues(
+    {
+      "GYM": TodoType.GYM,
+      "GOING": TodoType.GOING,
+      "SPORT": TodoType.SPORT,
+      "SHOPPING": TodoType.SHOPPING,
+      "PARTY": TodoType.PARTY,
+      "OTHER": TodoType.OTHER
+    }
+);
+
+
+
+
+enum TodoType {
+  GYM,
+  GOING,
+  SPORT,
+  SHOPPING,
+  PARTY,
+  OTHER
 }

@@ -16,6 +16,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   bloc: ^8.0.3
+  flutter_bloc: ^8.0.1
   equatable: ^2.0.3
   flutter_svg: ^1.0.3
   google_fonts: 2.1.1
@@ -26,7 +27,7 @@ dependencies:
   inview_notifier_list: ^3.0.0
   hydrated_bloc: ^8.0.0
   path_provider: ^2.0.9
-
+  intl: ^0.17.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
