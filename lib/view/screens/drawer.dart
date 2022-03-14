@@ -16,10 +16,10 @@ import 'package:provider/src/provider.dart';
 class DrawerWidget extends StatelessWidget {
 
     DrawerWidget({Key? key}) : super(key: key);
-   late final  String  _todoName;
-    late final String  _todoDescription;
-    late final DateTime _totoDate;
-    late final TodoType  _todoCategory;
+       late  String  _todoName;
+    late String  _todoDescription;
+    late DateTime _totoDate;
+    late TodoType  _todoCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +65,7 @@ class DrawerWidget extends StatelessWidget {
               TextField(
                 onChanged: (description){
                   _todoDescription = description;
+
                 },
                 maxLines: 4,
             textDirection: TextDirection.ltr,
@@ -85,6 +86,7 @@ class DrawerWidget extends StatelessWidget {
               AddButton(onPressed: (){
                     var todo = Todo(description: _todoDescription, name: _todoName, date: _totoDate, todoType: _todoCategory, isCompleted: false);
                     context.read<TodoBloc>().add(TodoAdded(todo: todo));
+                    print(_todoDescription);
                     print(todo.toString());
               },)
 
