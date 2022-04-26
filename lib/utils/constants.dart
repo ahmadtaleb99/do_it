@@ -22,8 +22,15 @@ fontSize: 13
 TextStyle kTaskStyle =  GoogleFonts.lato(
     fontSize: 14
 );
+TextStyle kDateStyle =  GoogleFonts.lato(
+    fontSize: 14,
+    color: kDateColor.withOpacity(0.8),
+  fontWeight: FontWeight.bold,
+
+);
 
 
+const kDateColor =  Color(0xff181743);
 
 
  const  kPurpleGradient =LinearGradient(colors: [

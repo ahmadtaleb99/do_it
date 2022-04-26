@@ -1,6 +1,6 @@
 import 'package:do_it/utils/constants.dart';
 import 'package:do_it/view/screens/drawer.dart';
-import 'package:do_it/view/widgets/List_screen/BuildTaskItems.dart';
+import 'package:do_it/view/widgets/List_screen/BuildTodoItems.dart';
 import 'package:do_it/view/widgets/List_screen/RoundButton.dart';
 import 'package:do_it/view/widgets/drawer/AddButton.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +60,7 @@ class ListScreen extends StatelessWidget {
             // ),
             child: Image.asset('assets/images/background.png',fit: BoxFit.fill,),
           ),
-          BuildTaskItems()
+          BuildTodoItems()
         ],
       )
     );

@@ -1,5 +1,5 @@
-import 'package:do_it/logic/todo_bloc.dart';
-import 'package:do_it/model/Todo.dart';
+import 'package:do_it/logic/Todo/bloc/todo_bloc.dart';
+import 'package:do_it/model/Todo/Todo.dart';
 import 'package:do_it/utils/constants.dart';
 import 'package:do_it/view/widgets/drawer/AddButton.dart';
 import 'package:do_it/view/widgets/drawer/NameTextField.dart';
@@ -46,11 +46,9 @@ class DrawerWidget extends StatelessWidget {
                       'Icon',
                       style: kDrawerHeader,
                     ),
-                    Expanded(
-                      child: TaskTypePicker(onChanged: (selected){
-                      _todoCategory = selected;
-                      }),
-                    )
+                    TaskTypePicker(onChanged: (selected){
+                    _todoCategory = selected;
+                    })
                   ],
                 ),
               ),
@@ -84,7 +82,7 @@ class DrawerWidget extends StatelessWidget {
               },),
               SizedBox(height:50.h),
               AddButton(onPressed: (){
-                    var todo = Todo(description: _todoDescription, name: _todoName, date: _totoDate, todoType: _todoCategory, isCompleted: false);
+                    var todo = Todo(description: _todoDescription, title: _todoName, date: _totoDate, todoType: _todoCategory, isCompleted: false);
                     context.read<TodoBloc>().add(TodoAdded(todo: todo));
                     print(_todoDescription);
                     print(todo.toString());

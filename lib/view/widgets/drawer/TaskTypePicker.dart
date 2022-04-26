@@ -1,4 +1,4 @@
-import 'package:do_it/model/Todo.dart';
+import 'package:do_it/model/Todo/Todo.dart';
 import 'package:do_it/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

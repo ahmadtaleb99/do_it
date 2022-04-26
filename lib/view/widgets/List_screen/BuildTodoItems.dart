@@ -1,13 +1,13 @@
 import 'package:do_it/utils/constants.dart';
-import 'package:do_it/view/widgets/List_screen/TaskCard.dart';
+import 'package:do_it/view/widgets/List_screen/TodoCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class BuildTaskItems extends StatelessWidget {
-  const BuildTaskItems({Key? key}) : super(key: key);
+class BuildTodoItems extends StatelessWidget {
+  const BuildTodoItems({Key? key}) : super(key: key);
 
 
   @override
@@ -33,7 +33,7 @@ class BuildTaskItems extends StatelessWidget {
           id: '$index',
           builder: (BuildContext context, bool isInView, Widget  ? child) {
 
-              return TaskCard(index: index,isInView: isInView);
+              return TodoCard(index: index,isInView: isInView);
 
           },
         );
