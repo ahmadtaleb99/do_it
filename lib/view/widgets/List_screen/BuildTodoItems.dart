@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import 'package:shimmer/shimmer.dart';
+
 
 class BuildTodoItems extends StatelessWidget {
   const BuildTodoItems({Key? key}) : super(key: key);
@@ -33,7 +35,11 @@ class BuildTodoItems extends StatelessWidget {
           id: '$index',
           builder: (BuildContext context, bool isInView, Widget  ? child) {
 
-              return TodoCard(index: index,isInView: isInView);
+              return Shimmer.fromColors(
+                  baseColor:    Colors.grey[300]!,
+                  highlightColor: Colors.grey[100]!,
+
+              child: TodoCard(index: index,isInView: isInView));
 
           },
         );

@@ -37,6 +37,10 @@ const kDateColor =  Color(0xff181743);
    Color(0xffFE1E9A),
    Color(0xff254DDE)
  ]);
+ const  kOrangeGradient  =LinearGradient(colors: [
+   Color(0xffFEA64C),
+   Color(0xffFE1E9A)
+ ]);
 
 const  kBlueGradient =LinearGradient(colors: [
   Color(0xff254DDE),
